@@ -11,7 +11,7 @@ const Footer = () => {
                 <div><img src="https://st2.depositphotos.com/17902080/42732/v/450/depositphotos_427329792-stock-illustration-instagram-circle-button-multicolor-logo.jpg" alt="" /></div>
                 <div><img src="https://thumbs.dreamstime.com/b/linkedin-155528873.jpg" alt="" /></div>
             </div>
-            <p>Thanks for visiting <span>Manoranjan!</span> We're thrilled to have you join us on our cinematic journey.</p>
+            <p>Thanks for visiting <span>Hisaab!</span> We're thrilled to have you join us on our cinematic journey.</p>
         </footer>
     )
 }
