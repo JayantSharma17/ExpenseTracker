@@ -23,8 +23,9 @@ const Register = () => {
       if (!username || !email || !password) {
         message('All input fields are required')
       }
-      const payload = { username, email, password }
-      let res = await axios.post(`${BaseURL}/register-user`, payload);
+      const payload = { name:username, email, password }
+      console.log(payload)
+      let res = await axios.post(`${BaseURL}/register`, payload);
       console.log(res)
       if (res.status === 201) {
         message('Your account is created successfully')
