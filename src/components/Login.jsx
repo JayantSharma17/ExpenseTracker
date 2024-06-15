@@ -25,18 +25,18 @@ const Login = () => {
       }
       setLoader(true);
       const payload = { email, password }
-      let res = await axios.post(`${BaseURL}/login-user`, payload);
+      let res = await axios.post(`${BaseURL}/login`, payload);
       console.log(res.data.token)
-      console.log(res.data.response._id)
+      console.log(res.data.userId)
       localStorage.setItem("token",res.data.token)
-      localStorage.setItem("userId",res.data.response._id)
+      localStorage.setItem("userId",res.data.userId)
       setLoader(false);
       setReloadNavbar(!reloadNavbar)
 
-      if (res.status === 200) {
+      // if (res.status === 200) {
         message('Logged In successfully')
         navigate('/')
-      }
+      // }
     }
     catch (error) {
       setLoader(false);
