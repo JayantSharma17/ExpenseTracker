@@ -1,14 +1,26 @@
 import React, { useState } from "react";
 import "./CSS/AddIncome.css";
+import { BaseURL } from "../Global";
+import axios from "axios";
+
 
 const AddIncome = ({ setIsFormOpen }) => {
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("Select");
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-    
+      const data = {
+        amount : amount,
+        source : category
+      }
+      const userId = await localStorage.getItem("userId");
+
+      const response = await axios.post(`${BaseURL}/${userId}/addexpense`,data);
+      console.log(response)
+      
  
     } catch (error) {
       console.error("Error adding income:", error);
@@ -24,7 +36,7 @@ const AddIncome = ({ setIsFormOpen }) => {
           <h1>Add Income</h1>
           <p onClick={() => setIsFormOpen(false)}>X</p>
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={()=>handleSubmit(e)}>
           <input
             type="number"
             placeholder="Amount"
