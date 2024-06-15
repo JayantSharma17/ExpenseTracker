@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import './CSS/Dashboard.css'
 import { FaCirclePlus } from "react-icons/fa6";
+import AllCards from './AllCards';
 
 const Dashboard = () => {
   useEffect(() => {
@@ -24,6 +25,7 @@ const Dashboard = () => {
         <div><FaCirclePlus /></div>
         <p>Add Income</p>
       </button>
+        <AllCards/>
     </div>
   )
 

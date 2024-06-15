@@ -1,3 +1,24 @@
-.cards >{
-     width: 20px;
+.cards > img{
+     width: 100px;
+     padding: 6%;
+}
+.cards > p{
+   
+     padding:0 0 6% 0 ;
+}
+
+.cards{
+    background-color: rgba(247, 253, 247, 0.623);
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+}
+.cards:hover{
+    background-color: rgba(247, 253, 247, 0.733);
+    scale: 1.02;
+    filter: brightness(1.1);
+    transition: 0.5s;
+    box-shadow: 0 0 2px gray;
 }
