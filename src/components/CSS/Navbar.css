@@ -113,18 +113,19 @@ nav>div>img {
     background-color: transparent;
 }
 
-#menuButton>img{
-    width: 40px;
-    height: 40px;
+#menuButton>div{
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #262626;
 }
 
 #mobileNav{
-    margin-top: 10px;
-    width: 95vw;
+    width: 100vw;
     display: flex;
-    background-color: #000000;
+    background-color: #ffffff;
     overflow: hidden;
-    border-radius: 15px;
     max-height: 0px; /* Initially collapsed */
     transition: max-height 0.2s ease-in-out; /* Smooth transition effect */
     margin-left: auto;
@@ -154,9 +155,9 @@ nav>div>img {
 }
 #mobileNav>ul>a{
     text-decoration: none;
-    color: #969696;
+    color: #6e6e6e;
     font-size: 18px;
-    border: 2px solid #000000;
+    /* border: 2px solid #000000; */
     width: 100%;
     padding-left: 3vw;
 
@@ -166,7 +167,7 @@ nav>div>img {
     width: 30vw;
     font-size: 18px;
     color: white;
-    background-color: transparent;
+    background-color: #12BD84;
     border:2px solid #12BD84;
     border-radius: 30px;
     display: flex;
@@ -197,17 +198,17 @@ nav>div>img {
 
     }
     #menuButton:hover{
-        background-color: rgb(37, 37, 37);
+        background-color: rgb(223, 223, 223);
     
     }
     
     #menuButton>img{
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
     }
     nav>div:nth-child(1)>img {
-        width: 25px;
-        height: 25px;
+        width: 40px;
+        height:40px;
     }
     
     nav>div:nth-child(1)>p {
