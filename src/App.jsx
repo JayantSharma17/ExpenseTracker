@@ -9,7 +9,8 @@ import { Toaster } from 'react-hot-toast';
 import Notfound from './components/Notfound';
 
 
-// Create context for navbar reloading
+// Create context for navbar reloading 
+// hii
 const NavbarContext = createContext();
 
 const App = () => {
