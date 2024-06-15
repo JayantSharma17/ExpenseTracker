@@ -6,6 +6,7 @@ import menu from '../assets/menu.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useNavbarContext } from '../App';
 import { message } from '../Global';
+import { GiHamburgerMenu } from "react-icons/gi";
 
 
 const Navbar = () => {
@@ -62,7 +63,10 @@ const Navbar = () => {
         </div>
 
         <button onClick={openMenu} id='menuButton'>
-          <img src={menu} alt="" />
+          {/* <img src={menu} alt="" /> */}
+          <div>
+          <GiHamburgerMenu />
+          </div>
         </button>
       </nav>
 

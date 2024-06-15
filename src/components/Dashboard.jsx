@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react'
+import './CSS/Dashboard.css'
+import { FaCirclePlus } from "react-icons/fa6";
 
 const Dashboard = () => {
   useEffect(() => {
@@ -17,7 +19,12 @@ const Dashboard = () => {
     }
   }
   return (
-    <div>Dashboard</div>
+    <div id='dashboard'>
+      <button id='addbut'>
+        <div><FaCirclePlus /></div>
+        <p>Add Income</p>
+      </button>
+    </div>
   )
 
 }
