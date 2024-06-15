@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import { Toaster } from 'react-hot-toast';
 import Notfound from './components/Notfound';
+import AllCards from './components/AllCards';
 
 
 // Create context for navbar reloading 
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path='/' Component={Dashboard} />
           <Route exact path='/login' Component={Login} />
           <Route exact path='/register' Component={Register} />
+          <Route exact path='/cards' Component={AllCards} />
    
           <Route path='/*' Component={Notfound} />
         
