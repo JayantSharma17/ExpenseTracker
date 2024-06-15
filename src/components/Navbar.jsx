@@ -52,8 +52,7 @@ const Navbar = () => {
 
         <ul>
           <li><Link to="/">Dashboard</Link></li>
-          <li><Link to="/wishlist">WishList</Link></li>
-          <li><Link to="/connect">Connect</Link></li>
+  
         </ul>
 
         <div id='profileButton'>
