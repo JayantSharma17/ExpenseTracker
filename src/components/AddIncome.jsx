@@ -11,7 +11,7 @@ const AddIncome = ({setIsFormOpen}) => {
         </div>
         <input type="number" placeholder="Amount" />
       
-        <select> {/* Use the <select> tag for dropdown menus */}
+        <select> 
             <option value="Select">Select</option>
             <option value="health">Health</option>
             <option value="personal">Personal</option> {/* Corrected spelling */}
