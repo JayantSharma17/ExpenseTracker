@@ -1,22 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CSS/AddIncome.css";
 
-const AddIncome = ({ setIsFormOpen }) => {
-  const [amount, setAmount] = useState("");
-  const [category, setCategory] = useState("Select");
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-    
- 
-    } catch (error) {
-      console.error("Error adding income:", error);
-    }
-
-    setIsFormOpen(false);
-  };
-
+const AddIncome = ({setIsFormOpen}) => {
   return (
     <div className="form">
       <div className="formDiv">
@@ -24,29 +9,17 @@ const AddIncome = ({ setIsFormOpen }) => {
           <h1>Add Income</h1>
           <p onClick={() => setIsFormOpen(false)}>X</p>
         </div>
-        <form onSubmit={handleSubmit}>
-          <input
-            type="number"
-            placeholder="Amount"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          />
-
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
+        <input type="number" placeholder="Amount" />
+      
+        <select> 
             <option value="Select">Select</option>
-            <option value="health">Health</option> 
-            <option value="personal">Personal</option>
+            <option value="health">Health</option>
+            <option value="personal">Personal</option> {/* Corrected spelling */}
             <option value="education">Education</option>
             <option value="food">Food</option>
             <option value="travel">Travel</option>
-          </select>
-          <button className="addBtn" type="submit">
-            Add
-          </button>
-        </form>
+        </select>
+        <button className="addBtn" >Add</button>
       </div>
     </div>
   );
