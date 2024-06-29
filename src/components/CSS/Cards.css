@@ -1,6 +1,6 @@
 .cards > img{
      width: 100px;
-     padding: 6%;
+     /* padding: 6%; */
 }
 .cards > p{
    
@@ -11,11 +11,12 @@
     background-color: rgba(247, 253, 247, 0.623);
     display: flex ;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     border-radius: 100%;
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
+    margin: auto;
 }
 .cards:hover{
     background-color: rgba(247, 253, 247, 0.733);
