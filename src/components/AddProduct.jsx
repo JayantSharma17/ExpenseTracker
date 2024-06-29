@@ -11,39 +11,13 @@ const AddProduct = () => {
         name: "",
         description: "",
         price: "",
-        category: "Salad",
+        category: "",
       });
 
     const navigate = useNavigate();
 
     const handleproduct = async () => {
-        // try {
-        //     console.log(email, password);
-        //     if (!email || !password) {
-        //         message("All input fields are required");
-        //         return;
-        //     }
-        //     setLoader(true);
-        //     const payload = { email, password };
-        //     let res = await axios.post(`${BaseURL}/product`, payload);
-        //     console.log(res.data.token);
-        //     console.log(res.data.customerId);
-        //     localStorage.setItem("token", res.data.token);
-        //     localStorage.setItem("customerId", res.data.customerId);
-        //     setLoader(false);
-        //     setReloadNavbar(!reloadNavbar);
-        //     message("Logged In successfully");
-        //     navigate("/");
-        // } catch (error) {
-        //     setLoader(false);
-        //     if (error.response) {
-        //         if (error.response.status === 400) {
-        //             message("Invalid product Credentials");
-        //         }
-        //     } else {
-        //         message("Network Error");
-        //     }
-        // }
+
     };
 
     const onChangeHandler = (event) => {
@@ -62,14 +36,14 @@ const AddProduct = () => {
         formData.append("image", image);
     
         try {
-          const response = await axios.post(`${url}/api/food/add`, formData);
+          const response = await axios.post(`${url}`, formData);
     
           if (response.status === 201) {
             setData({
               name: "",
               description: "",
               price: "",
-              category: "Salad",
+              category: "",
             });
             setImage(null);
             toast.success(response.data.message);

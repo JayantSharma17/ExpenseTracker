@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import './CSS/Navbar.css'
-import logo from '../assets/folded.png';
-import user from '../assets/user.png';
-import menu from '../assets/menu.png';
-import { Link, useNavigate } from 'react-router-dom';
-import { useNavbarContext } from '../App';
-import { message } from '../Global';
+import React, { useEffect, useState } from "react";
+import "./CSS/Navbar.css";
+import logo from "../assets/folded.png";
+import user from "../assets/user.png";
+import menu from "../assets/menu.png";
+import { Link, useNavigate } from "react-router-dom";
+import { useNavbarContext } from "../App";
+import { message } from "../Global";
 import { GiHamburgerMenu } from "react-icons/gi";
-
 
 const Navbar = () => {
   const [login, setLogin] = useState(false);
@@ -16,78 +15,116 @@ const Navbar = () => {
   const { reloadNavbar } = useNavbarContext(); // Access the context
   useEffect(() => {
     verify();
-  }, [reloadNavbar])
+  }, [reloadNavbar]);
 
   const verify = async () => {
     if (localStorage.getItem("token") === null) {
       setLogin(false);
+    } else {
+      setLogin(true);
     }
-    else {
-      setLogin(true)
-    }
-  }
+  };
 
   const [show, setShow] = useState(false);
 
-    const openMenu = () => {
-        const menu = document.getElementById("mobileNav");
-        if (show === false) {
-            // menu.style.display='flex';
-            menu.classList.add('show');
-        }
-        else {
-            // menu.style.display='none';
-            menu.classList.remove('show');
-        }
-        setShow(!show);
+  const openMenu = () => {
+    const menu = document.getElementById("mobileNav");
+    if (show === false) {
+      // menu.style.display='flex';
+      menu.classList.add("show");
+    } else {
+      // menu.style.display='none';
+      menu.classList.remove("show");
     }
+    setShow(!show);
+  };
   return (
     <>
       <nav>
-        <div id='logo'>
+        <div id="logo">
           <img src={logo} alt="" />
           <p>Parampara</p>
-
         </div>
 
         <ul>
-          <li><Link to="/">Dashboard</Link></li>
-  
+          <li>
+            <Link to="/">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/AllProducts">&nbsp;&nbsp;&nbsp;All Products</Link>
+
+          </li>
         </ul>
 
-        <div id='profileButton'>
+        <div id="profileButton">
           {/* <img src={user} alt="" /> */}
-          {login === false ? <button onClick={() => { navigate('/login') }}>Login</button> :
-            <button onClick={() => { localStorage.clear(); setLogin(false); message('Logout successfully'); navigate('/login') }}>Logout</button>}
+          {login === false ? (
+            <button
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Login
+            </button>
+          ) : (
+            <button
+              onClick={() => {
+                localStorage.clear();
+                setLogin(false);
+                message("Logout successfully");
+                navigate("/login");
+              }}
+            >
+              Logout
+            </button>
+          )}
         </div>
 
-        <button onClick={openMenu} id='menuButton'>
+        <button onClick={openMenu} id="menuButton">
           {/* <img src={menu} alt="" /> */}
           <div>
-          <GiHamburgerMenu />
+            <GiHamburgerMenu />
           </div>
         </button>
       </nav>
 
-      <div id='mobileNav'>
+      <div id="mobileNav">
         <ul>
           {/* <div style={{ height: '1px', width: '100vw', backgroundColor: 'gray' }}></div> */}
 
-          <Link onClick={openMenu} to="/"><li>Dashboard</li></Link>
-          <div style={{ height: '1px', width: '100vw', backgroundColor: 'gray' }}></div>
-          <Link onClick={openMenu} to="/wishlist"><li>WishList</li></Link>
-          <div style={{ height: '1px', width: '100vw', backgroundColor: 'gray' }}></div>
-
-          <Link onClick={openMenu} to="/connect"><li>Connect</li></Link>
-          <div style={{ height: '1px', width: '100vw', backgroundColor: 'gray' }}></div>
-
-          <li>{login === false ? <button onClick={() => { navigate('/login') }}>Login</button> :
-            <button onClick={() => {openMenu(); localStorage.clear(); setLogin(false); message('Logout successfully'); navigate('/login') }}>Logout</button>}</li>
-
+          <Link onClick={openMenu} to="/">
+            <li>Dashboard</li>
+          </Link>
+          <div
+            style={{ height: "1px", width: "100vw", backgroundColor: "gray" }}
+          ></div>
+          <li>
+            {login === false ? (
+              <button
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Login
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  openMenu();
+                  localStorage.clear();
+                  setLogin(false);
+                  message("Logout successfully");
+                  navigate("/login");
+                }}
+              >
+                Logout
+              </button>
+            )}
+          </li>
         </ul>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

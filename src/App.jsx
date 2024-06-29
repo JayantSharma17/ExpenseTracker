@@ -10,6 +10,7 @@ import Notfound from './components/Notfound';
 import AllCards from './components/AllCards';
 import AddProduct from './components/AddProduct';
 import AllProducts from './components/AllProducts';
+import ProductPage from './components/ProductPage';
 
 
 // Create context for navbar reloading 
@@ -32,6 +33,7 @@ const App = () => {
           <Route exact path='/allproducts' Component={AllProducts} />
           <Route exact path='/register' Component={Register} />
           <Route exact path='/cards' Component={AllCards} />
+          <Route exact path='/product' Component={ProductPage} />
    
           <Route path='/*' Component={Notfound} />
         

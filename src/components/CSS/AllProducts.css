@@ -1,0 +1,19 @@
+.display-list {
+    width: 80vw;
+
+    padding: 10px;
+ 
+overflow: hidden;
+  margin: auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  justify-items: center;
+  margin-top: 2rem;
+  position: relative;
+  transition: all 2s ease;
+
+}
+h2{
+    margin-top: 2rem;
+}
