@@ -50,7 +50,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    background-color: #12bd840e;
+    background-color: #ffffff2d;
     box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.405);
     backdrop-filter: blur(10px);
     border-radius: 20px;
@@ -77,7 +77,7 @@
     padding-left: 10px;
     padding-right: 10px;
     color: rgb(0, 0, 0);
-    border: 3px solid #12BD84;
+    border: 3px solid #4E0E47;
     background-color: transparent;
     border-radius: 30px;
     min-width: 50%;
@@ -88,7 +88,7 @@
     -o-border-radius: 30px;
 }
 .loginDiv>button:hover{
-    background-color: #12BD84;;
+    background-color: #4E0E47;;
     color: white;
  
 }
@@ -106,7 +106,7 @@
 
 }
 .loginDiv>p>a{
-    color: #12BD84;
+    color: #4E0E47;
     font-weight: normal;
     margin: 10px;
     text-decoration: none;
