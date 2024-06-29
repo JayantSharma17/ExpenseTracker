@@ -1,83 +1,169 @@
 import React, { useState } from 'react'
 import { useNavigate,Link } from 'react-router-dom';
 import { BallTriangle } from "react-loader-spinner";
+import upload from "../assets/upload_area.png";
+import axios from "axios";
+import './CSS/AddProduct.css'
 const AddProduct = () => {
-
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [loader, setLoader] = useState(false);
+    const [image, setImage] = useState(null);
+    const [data, setData] = useState({
+        name: "",
+        description: "",
+        price: "",
+        category: "Salad",
+      });
 
     const navigate = useNavigate();
 
-    const handleLogin = async () => {
-        try {
-            console.log(email, password);
-            if (!email || !password) {
-                message("All input fields are required");
-                return;
-            }
-            setLoader(true);
-            const payload = { email, password };
-            let res = await axios.post(`${BaseURL}/login`, payload);
-            console.log(res.data.token);
-            console.log(res.data.customerId);
-            localStorage.setItem("token", res.data.token);
-            localStorage.setItem("customerId", res.data.customerId);
-            setLoader(false);
-            setReloadNavbar(!reloadNavbar);
-
-            // if (res.status === 200) {
-            message("Logged In successfully");
-            navigate("/");
-            // }
-        } catch (error) {
-            setLoader(false);
-            if (error.response) {
-                if (error.response.status === 400) {
-                    message("Invalid login Credentials");
-                }
-            } else {
-                message("Network Error");
-            }
-        }
+    const handleproduct = async () => {
+        // try {
+        //     console.log(email, password);
+        //     if (!email || !password) {
+        //         message("All input fields are required");
+        //         return;
+        //     }
+        //     setLoader(true);
+        //     const payload = { email, password };
+        //     let res = await axios.post(`${BaseURL}/product`, payload);
+        //     console.log(res.data.token);
+        //     console.log(res.data.customerId);
+        //     localStorage.setItem("token", res.data.token);
+        //     localStorage.setItem("customerId", res.data.customerId);
+        //     setLoader(false);
+        //     setReloadNavbar(!reloadNavbar);
+        //     message("Logged In successfully");
+        //     navigate("/");
+        // } catch (error) {
+        //     setLoader(false);
+        //     if (error.response) {
+        //         if (error.response.status === 400) {
+        //             message("Invalid product Credentials");
+        //         }
+        //     } else {
+        //         message("Network Error");
+        //     }
+        // }
     };
-    return (
-        <div className="login">
-            <div className="loginDiv">
-                <h1>Add Products</h1>
-                <div className="roleDiv" id="roleDiv">
-                    <div className="roleLabel" id="roleLabel">
-                        {" "}
-                        Login as{" "}
-                    </div>
-                    <div className="roleRadio" id="roleRadio">
-                        <div>
-                            <input type="radio" id="seller" name="role" value="seller" />
-                            <label htmlFor="seller">Seller</label>
-                        </div>
-                        <div>
-                            <input type="radio" id="customer" name="role" value="customer" />
-                            <label htmlFor="customer">Customer</label>
-                        </div>
-                    </div>
-                </div>
-                <input
-                    type="text"
-                    placeholder="Email Id"
-                    value={email}
-                    onChange={(e) => {
-                        setEmail(e.target.value);
-                    }}
-                />
-                <input
-                    type="text"
-                    placeholder="Your Password"
-                    value={password}
-                    onChange={(e) => {
-                        setPassword(e.target.value);
-                    }}
-                />
 
+    const onChangeHandler = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setData((prevData) => ({ ...prevData, [name]: value }));
+      };
+
+      const onSubmitHandler = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("name", data.name);
+        formData.append("description", data.description);
+        formData.append("price", Number(data.price));
+        formData.append("category", data.category);
+        formData.append("image", image);
+    
+        try {
+          const response = await axios.post(`${url}/api/food/add`, formData);
+    
+          if (response.status === 201) {
+            setData({
+              name: "",
+              description: "",
+              price: "",
+              category: "Salad",
+            });
+            setImage(null);
+            toast.success(response.data.message);
+          } else {
+            console.error('Failed to add the product:', response.data.message);
+            toast.error(response.data.message);
+          }
+        } catch (error) {
+          if (error.response) {
+            console.error('Server responded with a status:', error.response.status);
+            console.error('Response data:', error.response.data);
+          } else if (error.request) {
+            console.error('No response received:', error.request);
+          } else {
+            console.error('Error setting up the request:', error.message);
+          }
+        }
+      };
+
+    return (
+        <div className="product">
+            <div className="productDiv">
+                <h1>Add Products</h1>
+              
+              
+              
+                <div className="add-image">
+                    <p>Upload Image</p>
+                    <label htmlFor="image">
+                        <img
+                            src={!image ? upload : URL.createObjectURL(image)}
+                            alt=""
+                        />
+                    </label>
+                    <input
+                        type="file"
+                        id="image"
+                        name="image"
+                        onChange={(e) => setImage(e.target.files[0])}
+                        hidden
+                        required
+                    />
+                </div>
+                <div className="add-product-name">
+                    <p>Product Name</p>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Product name"
+                        onChange={onChangeHandler}
+                        value={data.name}
+                        required
+                    />
+                </div>
+                <div className="add-product-description">
+                    <p>Product description</p>
+                    <textarea
+                        name="description"
+                        onChange={onChangeHandler}
+                        value={data.description}
+                        rows={2}
+                        placeholder="Write content here"
+                        required
+                    />
+                </div>
+                <div className="add-product-price">
+                    <p>Product Price</p>
+                    <input
+                        type="number"
+                        name="price"
+                        placeholder='Price'
+                        onChange={onChangeHandler}
+                        value={data.price}
+                        required
+                    />
+                </div>
+                <div className="add-product-category">
+                    <p>Product Category</p>
+                    <select
+                        name="category"
+                        id="category"
+                        onChange={onChangeHandler}
+                        value={data.category}
+                        required
+                    >
+                        <option value="Home Decor">Home Decor</option>
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="clothing">Clothing</option>
+                     
+                    
+                       
+                       
+                    </select>
+                </div>
                 <BallTriangle
                     height={50}
                     width={50}
@@ -88,10 +174,8 @@ const AddProduct = () => {
                     wrapperClass=""
                     visible={loader}
                 />
-                <button onClick={handleLogin}>{" Login "}</button>
-                <p>
-                    Don't have an account?<Link to={"/register"}>SignUp</Link>
-                </p>
+                <button onClick={handleproduct}>{" product "}</button>
+              
             </div>
         </div>
     )
