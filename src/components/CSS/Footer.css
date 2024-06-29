@@ -1,7 +1,7 @@
 footer{
-    width: 95vw;
+    width: 100vw;
     /* height: 300px; */
-    background-color: white;
+    background-color: #4E0E47;
     margin-left: auto;
     margin-right: auto;
 
@@ -23,7 +23,7 @@ footer>div:nth-child(1){
 footer>div:nth-child(1)>div{
     width: 60px;
     height: 60px;
-    background-color: rgb(45, 45, 45);
+    background-color: rgb(255, 255, 255);
     border-radius: 300px;
     overflow: hidden;
     display: flex;
@@ -38,14 +38,14 @@ footer>div:nth-child(1)>div>img{
     border-radius: 300px;
 }
 footer>p:nth-child(2){
-    color: gray;
+    color: rgb(255, 255, 255);
     font-size: 18px;
     margin-top: 10px;
     text-align: center;
     margin-bottom: 20px;
 }
 footer>p:nth-child(2)>span{
-    color:  #12BD84;
+    color:  #dc59cd;
 }
 
 @media only screen and (max-width: 900px) {

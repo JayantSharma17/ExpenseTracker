@@ -4,6 +4,7 @@ import { FaCirclePlus } from "react-icons/fa6";
 import AllCards from './AllCards';
 import { Navigate } from 'react-router-dom';
 import AddIncome from './AddIncome';
+import Intro from './Intro';
 
 const Dashboard = () => {
   useEffect(() => {
@@ -29,10 +30,7 @@ const Dashboard = () => {
   }
   return (
     <div id='dashboard'>
-      {/* <button id='addbut' onClick={()=>toggleForm()}>
-        <div><FaCirclePlus /></div>
-        <p>Add Income</p>
-      </button> */}
+        <Intro/>
         {isFormOpen && <AddIncome setIsFormOpen={setIsFormOpen} />  }
         <AllCards/>
     </div>

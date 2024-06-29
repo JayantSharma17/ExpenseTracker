@@ -2,16 +2,20 @@
 .AllCards {
   padding-top: 20px ;
   box-sizing: border-box;
-  display: grid;
+  /* display: grid; */
   /* gap: 3rem; */
   /* width: 90vw; */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  display: flex;
   /* padding: 2% 6%; */
   /* /* margin-left: auto; */
   margin: auto; 
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   overflow: hidden;
-  justify-content: center; /* Centers the grid items horizontally */
+  justify-content:space-between; /* Centers the grid items horizontally */
   align-items: center; /* Centers the grid items vertically */
  
 }

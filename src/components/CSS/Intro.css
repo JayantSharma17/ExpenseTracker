@@ -1,0 +1,23 @@
+#intro{
+    width:100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+#intro>img{
+    width: 200px;
+    height: 200px;
+    opacity: 0.4;
+
+}
+#intro>h1{
+    color: gray;
+    font-size: 40px;
+}
+#intro>p{
+    color: #4E0E47;
+    width: 60vw;
+    text-align: center;
+}

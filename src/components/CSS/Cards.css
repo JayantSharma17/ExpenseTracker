@@ -20,7 +20,7 @@
 }
 .cards:hover{
     background-color: rgba(247, 253, 247, 0.733);
-    scale: 1.02;
+    scale: 1.1;
     filter: brightness(1.1);
     transition: 0.5s;
     box-shadow: 0 0 2px gray;
