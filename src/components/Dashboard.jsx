@@ -29,10 +29,10 @@ const Dashboard = () => {
   }
   return (
     <div id='dashboard'>
-      <button id='addbut' onClick={()=>toggleForm()}>
+      {/* <button id='addbut' onClick={()=>toggleForm()}>
         <div><FaCirclePlus /></div>
         <p>Add Income</p>
-      </button>
+      </button> */}
         {isFormOpen && <AddIncome setIsFormOpen={setIsFormOpen} />  }
         <AllCards/>
     </div>

@@ -1,7 +1,7 @@
 nav {
     width: 100vw;
     height: 70px;
-    background-color: rgb(255, 255, 255);
+    background-color:#4E0E47;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -28,7 +28,7 @@ nav>div:nth-child(1)>p {
     font-size: 20px;
     font-weight: 600;
     margin: 5px;
-    color: rgba(0, 0, 0, 0.584);
+    color: rgb(255, 255, 255);
 }
 
 nav>ul {
@@ -60,7 +60,7 @@ nav>ul>li>a::after {
     width: 0;
     height: 2px;
     display: block;
-    background: #12BD84;
+    background: #7a206f;
     transition: width 0.3s;
     left: 0;
     top:0;
@@ -86,16 +86,16 @@ nav>div:nth-child(3)>button{
     padding-left: 10px;
     padding-right: 10px;
     color: rgb(255, 255, 255);
-    border: 3px solid #12BD84;
-    background-color: #12BD84;
+    border: 3px solid #7a206f;
+    background-color: #7a206f;
     border-radius: 5px;
     width: 10vw;
 
 }
 nav>div:nth-child(3)>button:hover{
     cursor: pointer;
-    border: 3px solid  rgb(33, 33, 33);
-    background-color: rgb(33, 33, 33);
+    border: 3px solid #a04a96;
+    background-color: rgb(59, 14, 54);
     
 
 }

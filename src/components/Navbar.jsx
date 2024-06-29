@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './CSS/Navbar.css'
-import logo from '../assets/expenses.png';
+import logo from '../assets/folded.png';
 import user from '../assets/user.png';
 import menu from '../assets/menu.png';
 import { Link, useNavigate } from 'react-router-dom';
@@ -46,7 +46,7 @@ const Navbar = () => {
       <nav>
         <div id='logo'>
           <img src={logo} alt="" />
-          <p>Hisaab</p>
+          <p>Parampara</p>
 
         </div>
 

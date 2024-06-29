@@ -10,11 +10,10 @@ import food from '../assets/fast-food.png'
 const AllCards = () => {
   return (
     <div className='AllCards' id='AllCards'>
-        <Cards title="Health" url={health}/>
-        <Cards title="Travel" url={travel}/>
-        <Cards title="Education" url={edu}/>
-        <Cards title="Personal" url={user}/>
-        <Cards title="Food" url={food}/>
+        <Cards title="Add Producs" url={health}/>
+        <Cards title="All Products" url={travel}/>
+        <Cards title="Manage Products" url={edu}/>
+        <Cards title="About us" url={user}/>
        
     </div>
   )
